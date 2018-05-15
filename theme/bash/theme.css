@@ -1,0 +1,135 @@
+﻿/* 폰트 로드 */
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding&subset=korean');
+
+
+/* 위치 기본 설정 */
+html
+{
+	/* 송출 소프트웨어의 disable scrollbar 여부에 상관 없이 스크롤바를 나타나지 않게 함 */
+	overflow:hidden;
+}
+
+body
+{
+	position:absolute;
+	
+	/* html의 기본 여백 제거 */
+	margin:0; right:0; left:0;
+	/* 채팅 메세지가 아래에서부터 나타나도록 */
+	bottom:0;
+}
+
+/* 최대(기본) 크기는 112px */
+img.twitch_emote	{	max-height:50px; }
+img.dccon					{	max-height:100px; }
+
+
+/* 구독자 및 후원 메세지 설정 */
+/*
+	구독 메세지
+	<div class="chat_msg_box">
+		<div class="chat_cheer_box">(configData.cheersMsg)</div>
+		우리 스트리머 사랑해!!
+		<div calss="chat_cheer_text">
+			<img class="cheer_icon" src="./images/cheer/cheer100.gif>
+			100
+		</div>
+		사실 테스트하려고 후원하는거지만.
+	</div>
+	
+	후원 메세지
+	<div class="chat_msg_box">
+		<div class="chat_subscribe_box">(configData.subMonthsMsg)</div>
+		구독인 줄 알았지만 테스트였습니다 Kappa Kappa
+	</div>	
+*/
+.chat_subscribe_box,
+.chat_cheer_box			{	text-align:left; 
+											color:red; }
+/* 후원 금액 */
+.chat_cheer_text									{ color:red; display:inline-block; }
+/* 후원 아이콘 */
+.chat_cheer_text img.cheer_icon		{	max-height:1em; vertical-align: middle; }
+
+
+
+/* 배경 설정. 전체적인 배경이 필요할 때 이용 */
+/*
+	<div id="background"></div>
+	<div id="chat_wrapper">
+	...
+*/
+#background	{	position:absolute; left:0; right:0; top:0; bottom:0; }
+
+
+
+/* 폰트 설정 */
+html								{	font-family: 'Nanum Gothic Coding', monospace;
+											font-size:20px; color: black; }
+.chat_outer_box {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+.chat_upper_box {
+	display: flex;
+}
+
+.chat_nickname_box::before {
+	content:"[";
+	color: black;
+}
+
+.chat_nickname_box::after {
+	content:"@twitch ~]";
+	color: black;
+}
+
+.chat_badge_box {
+  display: flex;
+  width: 0;
+}
+
+.chat_badge_box > img, .chat_badge_box.empty {
+  width: 1.125rem;
+  height: 1.125rem;
+  margin: 0;
+}
+.chat_badge_box > img, .chat_badge_box.empty {
+  padding-left: 1.125rem;
+  background-position: left;
+  background-size: 1rem;
+  background-repeat: no-repeat;
+  overflow: hidden;
+
+  display: none;
+}
+
+.chat_badge_box > img, .chat_badge_box.empty {
+	display: inline-block;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8IS0tIENyZWF0ZWQgd2l0aCBNZXRob2QgRHJhdyAtIGh0dHA6Ly9naXRodWIuY29tL2R1b3BpeGVsL01ldGhvZC1EcmF3LyAtLT4KIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8dGV4dCBzdHJva2U9IiMwMDAiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzY3NjE5MTkyNjAwMjUwMiwwLDAsMC43Njc2MTkxOTI2MDAyNTAyLDAuNzgwNjU0Mjc0ODU4NTM0MywtMC43MjI1NTkwNzMwMDg1OTY5KSAiIHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgZm9udC1mYW1pbHk9IidOYW51bSBHb3RoaWMgQ29kaW5nJywgbW9ub3NwYWNlIiBmb250LXNpemU9IjI0IiBpZD0ic3ZnXzEiIHk9IjIwLjk2NDY1OSIgeD0iMC41NDgxOTEiIHN0cm9rZS13aWR0aD0iMCIgZmlsbD0iIzAwMDAwMCI+JDwvdGV4dD4KIDwvZz4KPC9zdmc+');
+}
+
+.chat_badge_box > img[src="./images/badge/broadcaster.png"], 
+.chat_badge_box > img[src="./images/badge/mod.png"] {
+	display: inline-block;
+	background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiA8IS0tIENyZWF0ZWQgd2l0aCBNZXRob2QgRHJhdyAtIGh0dHA6Ly9naXRodWIuY29tL2R1b3BpeGVsL01ldGhvZC1EcmF3LyAtLT4KIDxnPgogIDx0aXRsZT5MYXllciAxPC90aXRsZT4KICA8dGV4dCBzdHJva2U9IiMwMDAiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzY3NjE5MTkyNjAwMjUwMiwwLDAsMC43Njc2MTkxOTI2MDAyNTAyLDAuNzgwNjU0Mjc0ODU4NTM0MywtMC43MjI1NTkwNzMwMDg1OTY5KSAiIHhtbDpzcGFjZT0icHJlc2VydmUiIHRleHQtYW5jaG9yPSJzdGFydCIgZm9udC1mYW1pbHk9IidOYW51bSBHb3RoaWMgQ29kaW5nJywgbW9ub3NwYWNlIiBmb250LXNpemU9IjI0IiBpZD0ic3ZnXzEiIHk9IjIxLjMxNjc0NiIgeD0iMC41NDgxOTEiIHN0cm9rZS13aWR0aD0iMCIgZmlsbD0iIzAwMDAwMCI+IzwvdGV4dD4KIDwvZz4KPC9zdmc+');
+}
+
+.chat_clip_box {
+	display: flex;
+	flex-direction: column;
+}
+
+.chat_clip_box > .chat_clip_title::before {
+	content: "Twitch Clip ";
+}
+
+.chat_clip_box > .chat_clip_by::before {
+	content: "By ";
+}
+
+.chat_clip_box > img {
+	display: none;
+}
